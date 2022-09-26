@@ -139,7 +139,7 @@ long long itc_oct_num(long long number){
 int itc_rev_bin_num(long long number){
     long long res = 0, kol = 0;
     while (number > 0){
-        res += number % 10 * itc_pow(2, kol);
+        res += (number % 10 * itc_pow(2, kol));
         kol++;
         number /= 10;
     }
@@ -149,7 +149,7 @@ int itc_rev_oct_num(long long number){
     long long res = 0;
     long long kol = 0;
     while (number > 0){
-        res += number % 10 * itc_pow(8, kol);
+        res += (number % 10 * itc_pow(8, kol));
         kol++;
         number /= 10;
     }

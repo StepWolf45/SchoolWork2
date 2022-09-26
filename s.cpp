@@ -146,8 +146,7 @@ int itc_rev_bin_num(long long number){
     return res;
 }
 int itc_rev_oct_num(long long number){
-    long long res = 0;
-    long long kol = 0;
+    long long res = 0, kol = 0;
     while (number > 0){
         res += (number % 10 * itc_pow(8, kol));
         kol++;

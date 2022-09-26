@@ -124,5 +124,15 @@ long long itc_bin_num(long long number) {
 	}
 	return itc_rev_num(h) / 10;
 
+}
+long long itc_oct_num(long long number){
+	long long h = 1;
+	while (number)
+	{
+		h *= 10;
+		h += number % 8;
+		number /= 8;
+	}
+	return itc_rev_num(h) / 10;
 
 }

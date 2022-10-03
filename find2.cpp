@@ -22,7 +22,7 @@ int itc_null_count(long long number) {
 
 }
 int itc_len_num(long long number) {
-	long long kol = 0;
+	int kol = 0;
 	if (number < 0) {
 		number *= -1;
 	}

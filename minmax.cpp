@@ -46,6 +46,9 @@ int itc_second_max_num(long long number) {
 		}
 		number /= 10;
 	}
+	if (max==0){
+		return max;
+	}
 	return max2;
 }
 

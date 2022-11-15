@@ -18,7 +18,10 @@ int itc_max_num(long long number) {
 }
 
 int itc_min_num(long long number) {
-	int min = number % 10;
+	int min = 10;
+	if (number == 0) {
+		return 0;
+	}
 	if (number < 0) {
 		number *= -1;
 	}
@@ -30,45 +33,27 @@ int itc_min_num(long long number) {
 	}
 	return min;
 }
-
 int itc_second_max_num(long long number) {
-	int max2 = 0;
 	int max = itc_max_num(number);
-	if (number < 0) {
-		number *= -1;
-	}
-	if (number < 10) {
+	int max2 = 0;
+	if (number < 0)
+		number = -number;
+	if (number < 10)
 		return -1;
-	}
 	while (number > 0) {
-		if (number % 10 > max2 && number % 10 != max) {
+		if (max2 < number % 10 && number % 10 != max)
 			max2 = number % 10;
-		}
-		number /= 10;
+		number = number / 10;
 	}
-	if (max==0){
-		return max;
+	if (max2 == 0) {
+		max2 = max;
 	}
 	return max2;
 }
 
 int itc_second_simple_max_num(long long number) {
-	int max2 = 0;
-	int max = itc_max_num(number);
-	if (number < 10) {
+	if (itc_second_max_num(number) == itc_max_num(number))
 		return -1;
-	}
-	if (number < 0) {
-		number *= -1;
-	}
-	while (number > 0) {
-		if (number % 10 > max2 && number % 10 != max) {
-			max2 = number % 10;
-		}
-		number /= 10;
-	}
-	if (max2 == 0) {
-		return -1;
-	}
-	return max2;
+	return itc_second_max_num(number);
+
 }
